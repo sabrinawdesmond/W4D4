@@ -20,7 +20,7 @@ class Array
 
 		self.each do |ele|
 			if !ele.is_a?(Integer)
-				raise 'Only Integers work!'
+				raise 'only works on arrays of Integers'
 			end
 		end
 

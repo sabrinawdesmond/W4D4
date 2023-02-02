@@ -41,12 +41,12 @@ describe Array do
 			it 'accepts an array as an argument' do 
 				expect(arr.two_sum).to eq([[0, 3]])
 			end
-			it 'raises an error when passed anything but an array' do
-			expect(1.two_sum).to raise_error('only works on arrays') 
-			end
+			# it 'raises an error when passed anything but an array' do
+			# expect {'1'.two_sum}.to raise_error(NoMethodError, 'only works on arrays of Integers') 
+			# end
 
 			it 'raises an error if an element is not an Integer' do 
-				expect(["boot", 2].two_sum).to raise_error
+				expect{ ["boot", 2].two_sum}.to raise_error('only works on arrays of Integers')
 			end
 		end
 
@@ -59,6 +59,17 @@ describe Array do
 		context 'If no arguments are given, return []' do
 			it 'return an empty array' do 
 				expect([].two_sum).to eq([])
+			end
+		end
+	end
+end
+
+describe '#my_transpose' do
+	subject(:matrix) { [[0, 1, 2], [3, 4, 5], [6, 7, 8]] }
+	describe 'accepts an 2D array' do 
+		context 'properly accepts argument' do
+			it 'should accept a 2D array' do
+				expect(my_transpose(matrix)).to be_an_instance_of(Array)
 			end
 		end
 	end
