@@ -36,3 +36,15 @@ class Array
 		pairs
 	end
 end
+
+def my_transpose(arr_2)
+	new_arr = Array.new(arr_2.length) {Array.new([])}
+	
+	arr_2.each do |ele|
+		if !ele.is_a?(Array)
+			raise "Not a 2D array"
+		end
+	end
+
+	arr_2.each_with_index do |ele, idx|
+end

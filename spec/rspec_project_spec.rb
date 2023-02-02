@@ -68,9 +68,22 @@ describe '#my_transpose' do
 	subject(:matrix) { [[0, 1, 2], [3, 4, 5], [6, 7, 8]] }
 	describe 'accepts an 2D array' do 
 		context 'properly accepts argument' do
-			it 'should accept a 2D array' do
+			it 'should accept an array as an argument' do
 				expect(my_transpose(matrix)).to be_an_instance_of(Array)
 			end
+			it 'only accepts 2D arrays' do 
+				expect {my_transpose([1, 2, 3, 4])}.to raise_error("Not a 2D array")
+			end
+		end
+	end
+	describe 'Methods' do
+		it 'Should not use build in Array#transpose' do
+			expect(my_transpose(matrix)).to_not receive(:transpose)
+		end
+	end
+	describe 'Results' do 
+		it 'Accepts final 2D array where original row[idx] and col[idx] are reversed' do 
+			expect(my_transpose(matrix)).to eq([[0, 3, 6], [1, 4, 7], [2, 5, 8]]) 
 		end
 	end
 end
