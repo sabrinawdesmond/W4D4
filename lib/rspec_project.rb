@@ -14,3 +14,25 @@ def my_uniq(arr)
 	final 
 end
 
+class Array
+	def two_sum
+		pairs = []
+
+		self.each do |ele|
+			if !ele.is_a?(Integer)
+				raise 'Only Integers work!'
+			end
+		end
+
+		self.each_with_index do |num1, i|
+			(i+1..self.length-1).each do |j|
+			num1 = self[i]
+			num2 = self[j]
+				if num1 + num2 == 0 
+					pairs << [i, j]
+				end
+			end
+		end
+		pairs
+	end
+end

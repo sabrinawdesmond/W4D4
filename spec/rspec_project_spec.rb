@@ -35,15 +35,30 @@ describe "#my_uniq" do
 end
 
 describe Array do
-	subject(:array) { [1, 2, 3, -1] }
-
 	describe '#two_sum' do
+		subject(:arr) { [1, 2, 3, -1] }
 		context 'properly accepts argument' do
 			it 'accepts an array as an argument' do 
-				expect(array.two_sum).to eq([0, 1])
+				expect(arr.two_sum).to eq([[0, 3]])
 			end
 			it 'raises an error when passed anything but an array' do
 			expect(1.two_sum).to raise_error('only works on arrays') 
+			end
+
+			it 'raises an error if an element is not an Integer' do 
+				expect(["boot", 2].two_sum).to raise_error
+			end
+		end
+
+		context 'returns array of indexes of a pair of elements that sum to 0' do
+			it 'returns a 2D array' do
+				expect(arr.two_sum).to eq([[0, 3]])
+			end
+		end
+
+		context 'If no arguments are given, return []' do
+			it 'return an empty array' do 
+				expect([].two_sum).to eq([])
 			end
 		end
 	end
