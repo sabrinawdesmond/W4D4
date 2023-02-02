@@ -37,6 +37,8 @@ class Array
 	end
 end
 
+arr_2 = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+
 def my_transpose(arr_2)
 	new_arr = Array.new(arr_2.length) {Array.new([])}
 	
@@ -46,5 +48,10 @@ def my_transpose(arr_2)
 		end
 	end
 
-	arr_2.each_with_index do |ele, idx|
+	arr_2.each_with_index do |sub_arr, row|
+		sub_arr.each_with_index do |ele, col|
+			new_arr[col][row] = arr_2[row][col]
+		end
+	end
+	new_arr
 end
